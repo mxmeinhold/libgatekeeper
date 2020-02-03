@@ -4,7 +4,6 @@
 #include <openssl/evp.h>
 #include <openssl/sha.h>
 #include <openssl/crypto.h>
-#include <mach/machine.h>
 
 #define GK_PBKDF2_ITERATIONS 10000
 
