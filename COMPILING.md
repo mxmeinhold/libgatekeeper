@@ -9,6 +9,19 @@ cmake -DOPENSSL_ROOT_DIR=/usr/local/opt/openssl@1.1 ..
 
 ```
 
+## arch linux
+
+Install your dependencies (as of time of writing)
+- In pacman repos: `libnfc libgcrypt openssl pkgconf cmake`
+- `libfreefare`: there's an aur package `libfreefare-git`, but it tracks the git repo, and there are breaking changes since 0.4.0. I've built a usable package, available [here](https://drop.mxmeinhold.com/pkgs/libfreefare-0.4.0-1-x86_64.pkg.tar.zst) [[signature]](https://drop.mxmeinhold.com/pkgs/libfreefare-0.4.0-1-x86_64.pkg.tar.zst.sig) [[GPG key]](https://gpg.mxmeinhold.com). Otherwise you can manually install from [the git repo](https://github.com/nfc-tools/libfreefare/tree/libfreefare-0.4.0), making sure to use the `libfreefare-0.4.0` tag.
+
+and in the root of the project run
+```sh
+mkdir build
+cmake -S . -B build # This creates your build environment
+cmake --build build # This actually builds your code
+```
+
 ### USB-to-UART
 Using a UART PN532 breakout with a USB-to-UART converter?
 Install the appropriate driver (check System Profiler for the device manufacturer):
